@@ -1,0 +1,43 @@
+{%extends 'base.html' %}
+
+{% block content %}
+   <div class="container">
+    <nav class="navbar navbar-light bg-light justify-content-end">
+      <form class="form-inline" method="post">
+        <input class="form-control mr-sm-2" name="city" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+    {% for climate in weather_data%}
+              <div class="col-md-10">
+                <p style="font-size: 30px;text-align: center; margin-bottom: 40px;">{{climate.name}} </p>
+              </div>
+            <div class="row" style="margin-left: 250px;">
+                
+                      <div class="col-md-4">
+                        <img src="http://openweathermap.org/img/wn/{{climate.icon}}.png" alt="">
+                        {{climate.description}}  <br>
+
+                      </div>
+                      <div class="col-md-2">
+                        <p>{{climate.temperature}} &#8451 </p>
+
+                      </div>
+                      <div class="col-md-2">
+                        <p style="margin-left: 20px;">{{climate.minimum_temp}} &#8451</p>
+                        <hr style="width: 40%;">
+                        <p style="margin-left: 20px;">{{climate.temp_max}}&#8451 </p>
+
+                       
+                      </div>
+                      <div class="col-md-3">
+                        
+                          <p>{{string}} </p>
+                        
+                      </div>
+                
+                
+            </div>
+     {%endfor%}
+   </div>
+{%endblock%}
